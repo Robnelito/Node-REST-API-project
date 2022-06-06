@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
 const entreprises = require("../services/entreprises");
 
@@ -12,7 +13,7 @@ router.get("/", async function (req, res, next) {
   }
 });
 
-router.post("/", async function (req, res, next) {
+router.post("/", async function (req, res, next){
   try {
     res.json(await entreprises.create(req.body));
   } catch (err) {
